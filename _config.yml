@@ -1,4 +1,12 @@
-theme: jekyll-theme-minimal
-
-title: [South Coast Science]
-description: [the open air quality platform]
+gems:
+  - jekyll-assets
+exclude:
+  - .idea/
+  - README
+  - COPYRIGHT
+  - .gitignore
+collections:
+  people:
+    output: false
+  products:
+    output: true
