@@ -1,6 +1,6 @@
 ---
 layout: product-theme
-permalink: /raspberry_pi/
+permalink: /products/raspberry_pi/
 title: Digital front-end for Raspberry Pi (v1)
 image: /images/Alpha-BB-Eng.png
 delivery: Available now.

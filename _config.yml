@@ -1,12 +1,15 @@
-gems:
+plugins:
   - jekyll-assets
 exclude:
   - .idea/
   - README
   - COPYRIGHT
   - .gitignore
+  - Gemfile
+  - Gemfile.lock
 collections:
   people:
     output: false
   products:
     output: true
+destination: docs/
