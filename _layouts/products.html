@@ -1,0 +1,20 @@
+---
+layout: theme
+---
+
+<main class="container mt-5 mb-5">
+    {% for product in site.products %}
+    <a class="btn btn-light m-2" style="text-align: left!important" href="{{ product.permalink }}">
+        <div class="row mt-2 mb-2">
+                <div class="col-md-4">
+                    <img src="{{ product.image }}" class="rounded w-100" alt="title">
+                </div>
+                <div class="col-md-8">
+                    <h2>{{ product.title }}</h2>
+                    <h3>{{ product.delivery }}</h3>
+                    <p>{{ product.paragraph | markdownify }}</p>
+                </div>
+        </div>
+     </a>
+    {% endfor %}
+</main>
