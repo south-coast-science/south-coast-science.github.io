@@ -1,7 +1,7 @@
 
 .jumbotron {
   background-image:
-  asset_url("istockphoto-697120006-1024x1024.jpg");
+  url("/images/istockphoto-697120006-1024x1024.jpg");
   min-height: 400px;
   background-color: #cccccc;
   background-position:

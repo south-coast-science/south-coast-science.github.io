@@ -1,5 +1,3 @@
-plugins:
-  - jekyll-assets
 exclude:
   - .idea/
   - README
@@ -12,4 +10,3 @@ collections:
     output: false
   products:
     output: true
-destination: docs/
