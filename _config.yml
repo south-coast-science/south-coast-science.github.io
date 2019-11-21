@@ -8,5 +8,7 @@ exclude:
 collections:
   people:
     output: false
+  home_sections:
+    output: false
   products:
     output: true

@@ -1,0 +1,25 @@
+---
+layout: theme
+---
+
+{% for section in site.home_sections %}
+{% capture bg %}{% cycle '', 'bg-light' %}{% endcapture %}
+{% capture text_order %}{% cycle 'order-md-1', 'order-md-2' %}{% endcapture %}
+{% capture pic_order %}{% cycle 'order-md-2', 'order-md-1' %}{% endcapture %}
+<div class="{{ bg }} pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 {{ text_order }}">
+                <h2>{{ section.heading }}</h2>
+                {{ section.content | markdownify }}
+            </div>
+            <div class="col-md-6 {{ pic_order }} text-center">
+                <img src="/images/Alpha-Pi-Eng-300x208.png"/>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% include our_values.html %}
+
+
