@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<p>{{ content | markdownify }}</p>
+
+<p>Phone: <a class="text-secondary" href="tel:{{ page.href_phone }}">{{ page.phone }}</a></p>
+
+<p>E-mail: <a class="text-secondary" href="mailto:{{ page.email }}">{{ page.email }}</a></p>
+
+<div class="row">
+    {% for location in page.locations %}
+    <div class="col-md-6">
+        <h3>{{ location.name }}</h3>
+        <p>{{ location.address | newline_to_br }}</p>
+        <iframe src="{{ location.maps_url }}" style="width:100%; height:400px;" frameborder="0" style="border:0;padding-top:50px;" allowfullscreen></iframe>
+    </div>
+    {% endfor %}
+</div>
+
+</div>
+
+

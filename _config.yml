@@ -1,3 +1,4 @@
+repository: south-coast-science/south-coast-science.github.io
 exclude:
   - .idea/
   - README
