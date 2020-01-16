@@ -4,7 +4,7 @@
 
 .jumbotron {
   background-image:
-  url("/images/istockphoto-697120006-1024x1024.jpg");
+  url("/images/istockphoto-966679302-1024x1024-blue.jpg");
   min-height: 400px;
   background-color: #cccccc;
   background-position:
@@ -70,9 +70,10 @@ a:hover{
 
 body {
   color: #666666 !important;
+  font-size: 14px;
 }
 
-#graph {width: 100%; opacity:0.5}
+#graph {width: 100%; opacity:0.6}
 
 .jumbotron .container {background-color:rgba(52, 58, 64, 0.5); color: white;}
 
