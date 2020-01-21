@@ -30,3 +30,10 @@
         </ul>
     </div>
 </nav>
+	<nav aria-label="breadcrumb bg-white m-0">
+        <ol class="breadcrumb d-flex justify-content-end m-0 pt-0">
+        {% for breadcrumb in page.breadcrumbs %}
+            <li class="breadcrumb-item"><a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></li>
+        {% endfor %}
+        </ol>
+    </nav>

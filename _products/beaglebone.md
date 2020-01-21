@@ -2,6 +2,13 @@
 layout: product-theme
 permalink: /products/beaglebone/
 title: Digital front-end for BeagleBone (v1)
+breadcrumbs:
+  - name: SCS
+    url: /
+  - name: Products
+    url: /products/
+  - name: Beaglebone
+    url: /products/beaglebone
 image: /images/Digital_front-end.png
 delivery: Available now.
 paragraph: A digital front-end for Alphasense AFE products, for use with the BeagleBone Green and BeagleBone Black microcontrollers.

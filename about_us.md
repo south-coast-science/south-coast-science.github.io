@@ -2,6 +2,11 @@
 layout: about-us
 permalink: /about/
 title: About us
+breadcrumbs:
+  - name: SCS
+    url: /
+  - name: About us
+    url: /about/
 ---
 
 ## Our story

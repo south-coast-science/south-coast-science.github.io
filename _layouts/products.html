@@ -1,8 +1,15 @@
 ---
 layout: theme
+breadcrumbs:
+  - name: SCS
+    url: /
+  - name: Products
+    url: /products/
 ---
 
 <main class="container mt-5 mb-5">
+
+
     {% for product in site.products %}
     <a class="btn btn-light m-2" style="text-align: left!important" href="{{ product.permalink }}">
         <div class="row mt-2 mb-2">

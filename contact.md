@@ -2,6 +2,11 @@
 layout: contact
 title: Contact
 permalink: /contact/
+breadcrumbs:
+  - name: SCS
+    url: /
+  - name: Contact
+    url: /contact/
 phone: +44 (0)1273 683 758
 href_phone: tel:+441273683758
 email: contact@southcoastscience.com
