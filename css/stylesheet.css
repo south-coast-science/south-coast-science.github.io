@@ -2,11 +2,6 @@
   background-color: #252525!important;
 }
 
-.breadcrumb {
-  border-radius: 0px;
-  background-color: #252525!important;
-  padding-right: 3em;
-}
 
 .breadcrumb-item + .breadcrumb-item::before {
   content: ">";
@@ -70,11 +65,11 @@ h3 {
   font-size: 1.2em!important;
 }
 
-a {
+footer a {
   color: white;
 }
 
-a:hover{
+footer a:hover{
   color: #70aeee;
   text-decoration: none;
 }

@@ -18,6 +18,15 @@
 <body>
 		{% include navigation.html %}
 		{% include header.html %}
+		<div class="container">
+			<nav aria-label="breadcrumb">
+			<ol class="breadcrumb bg-light">
+			{% for breadcrumb in page.breadcrumbs %}
+				<li class="breadcrumb-item"><a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></li>
+			{% endfor %}
+			</ol>
+			</nav>
+		</div>
 		{{ content }}
 		<footer class="footer bg-dark p-3">
 			<div class="container">
