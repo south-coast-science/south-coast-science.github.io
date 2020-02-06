@@ -1,8 +1,5 @@
 ---
 layout: home
-title: Welcome to South Coast Science
+title: South Coast Science
 paragraph: Highly-connected environmental monitoring devices, circuits and open-source software.
-breadcrumbs:
-  - name: SCS
-    url: /
 ---

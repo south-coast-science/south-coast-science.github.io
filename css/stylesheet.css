@@ -9,8 +9,7 @@
 
 
 .jumbotron {
-  background-image:
-  url("/images/istockphoto-966679302-1024x1024-blue.jpg");
+
   min-height: 400px;
   background-color: #cccccc;
   background-position:
@@ -19,6 +18,13 @@
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 0 !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .jumbotron { background-image:url("/images/scs_header_blue_small.jpg"); }
+}
+@media only screen and (min-width: 600px) {
+  .jumbotron { background-image:url("/images/scs_header_blue.jpg"); }
 }
 
 
@@ -72,6 +78,12 @@ footer a {
 footer a:hover{
   color: #70aeee;
   text-decoration: none;
+}
+
+footer nav li {
+  line-height: 2em;
+  padding: 0.25em 0;
+  border-bottom: 1px dotted grey;
 }
 
 body {

@@ -6,8 +6,6 @@ breadcrumbs:
     url: /
   - name: Products
     url: /products/
-  - name: Raspberry Pi
-    url: /products/raspberry_pi/
 title: Digital front-end for Raspberry Pi (v1)
 image: /images/Alpha-BB-Eng.png
 delivery: Available now.

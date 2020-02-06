@@ -6,8 +6,6 @@ breadcrumbs:
     url: /
   - name: Products
     url: /products/
-  - name: Praxis urban
-    url: /products/praxis_urban
 permalink: /products/praxis_urban
 image: /images/Praxis-front-closed.png
 delivery: Available now.

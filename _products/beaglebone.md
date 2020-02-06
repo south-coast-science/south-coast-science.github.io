@@ -7,8 +7,6 @@ breadcrumbs:
     url: /
   - name: Products
     url: /products/
-  - name: Beaglebone
-    url: /products/beaglebone
 image: /images/Digital_front-end.png
 delivery: Available now.
 paragraph: A digital front-end for Alphasense AFE products, for use with the BeagleBone Green and BeagleBone Black microcontrollers.
