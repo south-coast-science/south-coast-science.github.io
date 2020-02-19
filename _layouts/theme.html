@@ -11,6 +11,7 @@
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="https://www.gstatic.com/charts/loader.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
 		<meta name="robots" content="noindex">
@@ -82,47 +83,90 @@
 				</div>
 			</div>
 		</footer>
-		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 		<script>
-			google.charts.load('current', {packages: ['corechart', 'line']});
-			google.charts.setOnLoadCallback(drawGraph);
+			var data = [];
+      var values = [];
+      var apiKey = "okS6dj4qG09QxJlIom7d94iRpm3fETZQ7AvQt6mv";
+			
+			
+			document.addEventListener("DOMContentLoaded", function(event) {       
+				google.charts.load("current", { packages: ["corechart"] });
+				google.charts.setOnLoadCallback(fetchData);
 
-			function drawGraph() {
-				  var data = new google.visualization.DataTable();
-				  data.addColumn('number', 'X');
-				  data.addColumn('number', 'CO2');
+				window.addEventListener('resize', drawChart);
+      });
 
-						for (var i = 0; i < 500; i++) {
-						data.addRows([[i,Math.random()*20*(20+i)]])
-				  }
+      function fetchData(){
+      	var xhr = window.XMLHttpRequest
+	        ? new XMLHttpRequest()
+	        : new ActiveXObject("Microsoft.XMLHTTP");
 
+	      xhr.open(
+	        "GET",
+	        "https://oofas4y3jj.execute-api.eu-west-2.amazonaws.com/dev/"
+	      );
+	      xhr.onreadystatechange = function() {
+	        if (xhr.readyState > 3 && xhr.status == 200) {
+	          data = JSON.parse(xhr.responseText);
+	          for (var i = 0; i < data.length; i++) {
+	            values.push(data[i][1]);
+	          }
+	          drawChart();
+	        } else if (xhr.status == 404) {
+	          alert("There was a problem retrieving graph data");
+	        } else if (xhr.status != 200) {
+	          //some other problem
+	        }
+	      };
+	      xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+	      xhr.setRequestHeader("x-api-key", apiKey);
+	      xhr.send();
+      }
 
-				  var options = {
-					hAxis: {
-					  title: 'Time',
-					  gridlines: {
-						color: 'transparent'
-					  }
-					},
-					vAxis: {
-					  title: 'ppm CO₂',
-					  gridlines: {
-						color: 'transparent'
-					  }
-					},
-				    series: {
-						0: { color: '#000000' },
-				   },
-				   	backgroundColor: {fill:'transparent'},
-				   	chartArea: {'width': '100%', 'height': '60%'},
-				  };
+      function drawChart() {
+        var chartData = new google.visualization.DataTable();
+        chartData.addColumn("datetime", "Time");
+        chartData.addColumn("number", "ppb");
+        for (var i = 0; i < data.length; i++) {
+          chartData.addRow([new Date(data[i][0]), data[i][1]]);
+        }
 
-				  var chart = new google.visualization.LineChart(document.getElementById('graph'));
-				  chart.draw(data, options);
-				}
+        var options = {
+          title: "PM\u2081\u2080 concentration",
+          seriesType: "line",
+          legend: { position: "bottom" },
+          series: {
+            0: { color: "#CCC", lineWidth: 2.0, visibleInLegend: false },
+            1: { color: "#000000" }
+          },
+          vAxes: {
+            0: {
+              title: "\u00B5g/m\u00B3",
+              viewWindowMode: "explicit"
+            }
+          },
+          hAxis: {
+            format: "yyyy-MM-dd HH:mm"
+          },
+          max: Math.round(getMaxValue()),
+          min: Math.round(getMinValue())
+        };
 
-			window.addEventListener('resize', drawGraph);
+        var chart = new google.visualization.ComboChart(
+          document.getElementById("graph")
+        );
+
+        chart.draw(chartData, options);
+      }
+      function getMaxValue() {
+        return Math.max.apply(null, values) + 1;
+      }
+      function getMinValue() {
+        return Math.min.apply(null, values) - 1;
+      }
+			
+
 		</script>
 </body>
 
